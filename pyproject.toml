@@ -1,0 +1,25 @@
+[project]
+name = "triphisaab"
+version = "1.0.0"
+description = "Trip Hisaab - Group Expense Tracker"
+requires-python = ">=3.11"
+dependencies = [
+    "flet==1.1.2",
+    "supabase==2.34.1",
+    "python-dotenv==1.2.4",
+    "qrcode==8.2",
+]
+
+[tool.flet]
+product = "Trip Hisaab"
+org = "com.alphacore"
+
+[tool.flet.app]
+exclude = ["wheels", "supabase-pinger"]
+
+[tool.flet.android]
+package_name = "com.alphacore.triphisaab"
+
+[tool.flet.android.permission]
+"android.permission.INTERNET" = true
+"android.permission.ACCESS_NETWORK_STATE" = true
