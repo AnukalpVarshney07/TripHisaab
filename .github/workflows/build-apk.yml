@@ -15,6 +15,10 @@ jobs:
         with:
           python-version: "3.13"
 
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+
       - name: Install Flet CLI
         run: pip install --upgrade pip flet==1.1.2
 
