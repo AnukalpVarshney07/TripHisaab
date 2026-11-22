@@ -15,12 +15,14 @@ jobs:
         with:
           python-version: "3.13"
 
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: "stable"
-
       - name: Install Flet CLI
         run: pip install --upgrade pip flet==1.1.2
+
+      - name: Install Flutter SDK
+        run: |
+          git clone https://github.com/flutter/flutter.git -b stable --depth 1 $HOME/flutter
+          echo "$HOME/flutter/bin" >> $GITHUB_PATH
+          "$HOME/flutter/bin/flutter" --version --no-version-check --suppress-analytics
 
       - name: Build Android APK
         run: flet build apk --arch arm64-v8a -v
